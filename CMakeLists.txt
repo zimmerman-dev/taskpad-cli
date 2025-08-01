@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.16)
 # -------------------------------
 
 # Set your project name — this becomes the output binary name
-project(<your_project_name> LANGUAGES CXX)
+project(taskpad-cli LANGUAGES CXX)
 
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 20)
