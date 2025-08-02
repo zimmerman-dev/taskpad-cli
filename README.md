@@ -1,4 +1,8 @@
-# Taskpad-CLI – Development Roadmap
+# taskpad-cli – Development Roadmap
+
+taskpad-cli is a lightweight, session-based task tracker built for the command line. It allows you to log tasks, assign priorities, and estimate completion times—all within a single terminal session.
+
+Built as a weekend project to strengthen C++ fundamentals and Git workflows, `taskpad-cli` uses vectors, loops, and conditionals, while providing a practical tool for managing short-term work sessions. Future versions could evolve into a full-featured TUI app with file persistance, ncurses integration, and Pomodoro timers.
 
 ## Phase 1 – Session Skeleton
 - [ ] Set up `main()` with a `while (running)` loop.
