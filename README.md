@@ -5,14 +5,14 @@ taskpad-cli is a lightweight, session-based task tracker built for the command l
 Built as a weekend project to strengthen C++ fundamentals and Git workflows, `taskpad-cli` uses vectors, loops, and conditionals, while providing a practical tool for managing short-term work sessions. Future versions could evolve into a full-featured TUI app with file persistance, ncurses integration, and Pomodoro timers.
 
 ## Phase 1 – Session Skeleton
-- [ ] Set up `main()` with a `while (running)` loop.
-- [ ] Display a **session-focused menu**:
+- [x] Set up `main()` with a `while (running)` loop.
+- [x] Display a **session-focused menu**:
   - Add Task
   - View Session Tasks
   - View Session Summary
   - Quit Session
-- [ ] Use an `int choice` and `if / else if` to control logic.
-- [ ] Add `bool running = true;` to control the loop lifecycle.
+- [x] Use an `int choice` and `if / else if` to control logic.
+- [x] Add `bool running = true;` to control the loop lifecycle.
 
 &nbsp;
 ## Phase 2 – Session Data Structures
