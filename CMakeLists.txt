@@ -34,7 +34,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # -------------------------------
 
 # Define your main executable
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/menu.cpp
+)
 
 # Link additional libraries here
-# target_link_libraries(${PROJECT_NAME} PRIVATE your_library::your_library)
+# target_link_libraries(${PROJECT_NAME}
+#    PRIVATE
+#        ${CMAKE_SOURCE_DIR}/src
+#)
