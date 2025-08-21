@@ -1,41 +1,60 @@
 #include <iostream>
-#include <string>
 #include <limits>
-#include "menu.h"
-#include "addTask.h"
+#include <chrono>
+#include <thread>
+
+enum TaskOption : char {
+    Add = 'A', View = 'V',
+    Summary = 'S', Quit = 'Q'
+};
+
+void menu() {
+    std::cout << R"(
+╔══════════════════════════════════╗
+║  TASKPAD-CLI Session Mode - v1   ║
+╚══════════════════════════════════╝
+╔══════════════════════════════════╗
+║  [A] ➤ Add a New Task            ║
+║  [V] ➤ View All Tasks            ║
+║  [S] ➤ View Task Summary         ║
+║  [Q] ➤ Quit TASKPAD.CLI          ║
+╚══════════════════════════════════╝
+╔══════════════════════════════════╗
+║  ENTER CHARACTER AND PRESS [↵]   ║
+╚══════════════════════════════════╝
+»  )";
+};
+
+void bootAnimation() {
+    std::cout << "[BOOTING TASKPAD-CLI";
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << ".]\n";
+
+    std::cout << "[Initializing";
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << ".]\n";
+};
 
 int main() {
+    int userChoice {};
+    TaskOption choice {};
+    bool running {true};
 
-    std::string placeholder_1 = "Feature coming soon!";
-    bool running = true;
-
-    menu();
+    bootAnimation();
 
     while (running) {
-
-        int choice {};
-        std::cout << "\nEnter your choice: ";
-        std::cin >> choice;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-
-        if (choice == 1) {
-            std::vector<std::string> task;
-            std::vector<std::string> prio;
-            std::vector<int> time_to_complete;
-
-            addTask(task, prio, time_to_complete);
-
-        } else if (choice == 2) {
-            std::cout << placeholder_1 << std::endl;
-        } else if (choice == 3) {
-            std::cout << placeholder_1 << std::endl;
-        } else if (choice == 4) {
-            std::cout << "~~ Goodbye! ~~\n" << std::endl;
-            running = false;
-        } else {
-            std::cout << "Invalid option. Try again\n";
-            break;
-        }
+        menu(); // Calls the Menu header
+        std::cin >> userChoice;
+        running = false;
     }
+
     return 0;
 }

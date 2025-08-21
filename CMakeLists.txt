@@ -36,8 +36,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Define your main executable
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/menu.cpp
-    src/addTask.cpp
 )
 
 # Link additional libraries here
