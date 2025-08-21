@@ -1,26 +1,46 @@
 #include <iostream>
+#include <limits>
 
-enum Option {Add = 1, View, Summary};
+enum TaskOption : char {
+    Add = 'A',
+    View = 'V',
+    Summary = 'S',
+    Quit = 'Q'
+};
 
 int main() {
-    int userChoice;
-    Option choice;
+    char userChoice {};
+    TaskOption choice {};
+    bool running {true};
 
-    std::cout << "Welcome to TASKPAD CLI\n";
-    std::cout << "1. Add task\n2. View all tasks\n3. View current tasks\n";
-    std::cout << "Choose an option to continue: ";
-    std::cin >> userChoice;
-    choice = static_cast<Option>(userChoice);
+    while (running) {
+        std::cout << "\n";
+        std::cout << "==========================\n";
+        std::cout << "TASKPAD-CLI (Session Mode)\n";
+        std::cout << "==========================\n";
+        std::cout << "[A] Add Task\n";
+        std::cout << "[V] View Session Tasks\n";
+        std::cout << "[S] View Session Summary\n";
+        std::cout << "[Q] Quit Session\n";
+        std::cout << "\nEnter character: ";
+        std::cin >> userChoice;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        userChoice = std::toupper(userChoice);
 
-    switch (choice) {
-        case Add: std::cout << "You chose to add a task!\n";
-            break;
-        case View: std::cout << "You chose to view all tasks!\n";
-            break;
-        case Summary: std::cout << "You chose to view current task summary\n";
-            break;
-        default: std::cout << "Not a valid option\n";
-            break;
+        choice = static_cast<TaskOption>(userChoice);
+
+        switch (choice) {
+            case Add: std::cout << "\nAdd a Task\n";
+                break;
+            case View: std::cout << "\nView current Tasks\n";
+                break;
+            case Summary: std::cout << "\nView Task Summary\n";
+                break;
+            case Quit: std::cout << "\nQuit\n";
+                running = false;
+                break;
+            default: std::cout << "\nInvalid option...\n";
+        }
     }
     return 0;
 }
