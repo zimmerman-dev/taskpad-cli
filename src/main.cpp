@@ -4,8 +4,8 @@
 #include <thread>
 
 enum TaskOption : char {
-    Add = 'A', View = 'V',
-    Summary = 'S', Quit = 'Q'
+	Add = 'A', View = 'V',
+	Summary = 'S', Quit = 'Q'
 };
 
 void menu() {
@@ -43,18 +43,29 @@ void bootAnimation() {
     std::cout << ".]\n";
 };
 
+void processingAnimation() {
+    std::cout << "[Processing Request";
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "✓]\n";
+};
+
 int main() {
-    int userChoice {};
+    char userChoice {};
     TaskOption choice {};
-    bool running {true};
+    bool running = true;
 
     bootAnimation();
 
-    while (running) {
-        menu(); // Calls the Menu header
+    while (running)
+    {
+        menu();
         std::cin >> userChoice;
+        processingAnimation();
         running = false;
     }
-
     return 0;
 }

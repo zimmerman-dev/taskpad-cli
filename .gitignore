@@ -1,5 +1,8 @@
-# Build directory
-/build/
+# -------------------------
+# Build artifacts
+# -------------------------
+/build/                     # CMake build directory
+/bin/                       # Compiled executables
 
 # Object and binary files (anywhere in the project)
 *.o
@@ -12,7 +15,9 @@
 *.dll
 *.dylib
 
-# CMake files
+# -------------------------
+# CMake generated files
+# -------------------------
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
@@ -21,15 +26,43 @@ Makefile
 # Generated dependency files
 *.d
 
-# Logs
+# -------------------------
+# Logs & runtime outputs
+# -------------------------
 *.log
+*.trace                    # Added: runtime traces from profilers/debuggers
+*.tmp                      # Added: misc runtime temp files
 
-# Backup or swap files
+# -------------------------
+# Neovim / Editor / DAP junk
+# -------------------------
 *~
 *.swp
-.DS_Store
+*.swo                      # Added: other swap variants
+*.swn                      # Added: swap edge-case
+.session                   # Added: session save states
+shada/                     # Added: Neovim state history
+.gdb_history               # Added: debugger command history
+*.dSYM/                    # Added: macOS crash dumps
 
-# VSCode, CLion, Emacs, etc.
+# -------------------------
+# IDEs & tooling configs
+# -------------------------
+.DS_Store
 .vscode/
 .idea/
-compile_commands.json
+*.iml                      # Added: IntelliJ/CLion module files
+
+# -------------------------
+# Language Server Protocol (LSP)
+# -------------------------
+compile_commands.json      # Usually regenerated; ignore unless you want to commit it
+.cache/                    # Added: clangd, ccls, or other LSP caches
+
+# -------------------------
+# Testing / Coverage
+# -------------------------
+*.gcda                     # Added: GCC coverage data files
+*.gcno                     # Added: GCC coverage notes
+*.gcov                     # Added: GCC coverage reports
+
