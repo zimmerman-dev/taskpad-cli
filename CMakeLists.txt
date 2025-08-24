@@ -1,45 +1,27 @@
-cmake_minimum_required(VERSION 3.16)
+# Top-level CMakeLists.txt
 
-# -------------------------------
-# Project Configuration
-# -------------------------------
+cmake_minimum_required(VERSION 3.20)
+project(taskpad-cli CXX)
 
-# Set your project name — this becomes the output binary name
-project(taskpad-cli LANGUAGES CXX)
+# Always generate compile_commands.json (great for LSP)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Default to Debug if unspecified (nice for local dev)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
 
-# -------------------------------
-# External Dependencies (System)
-# -------------------------------
+# Apply friendly debug flags for GCC/Clang
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+  # Only for Debug config:
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g3 -O0 -fno-omit-frame-pointer")
+  # Make paths stable across machines (optional but nice for GDB):
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fdebug-prefix-map=${CMAKE_SOURCE_DIR}=.")
+endif()
 
-# Use find_package() for system-installed libraries
-# Example:
-# find_package(spdlog REQUIRED)
-# target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog)
-
-# -------------------------------
-# External Dependencies (Vendored)
-# -------------------------------
-
-# Use add_subdirectory() if you include third-party code in your project tree
-# Example:
-# add_subdirectory(external/fmt)
-# target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
-
-# -------------------------------
-# Build Targets
-# -------------------------------
-
-# Define your main executable
-add_executable(${PROJECT_NAME}
-    src/main.cpp
+# Your targets
+add_executable(taskpad-cli
+  src/main.cpp
+  # add other .cpp files here
 )
 
-# Link additional libraries here
-# target_link_libraries(${PROJECT_NAME}
-#    PRIVATE
-#        ${CMAKE_SOURCE_DIR}/src
-#)

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/tachikoma/projects/taskpad-cli/build",
+  "command": "/usr/sbin/c++   -g -g3 -O0 -fno-omit-frame-pointer -fdebug-prefix-map=/home/tachikoma/projects/taskpad-cli=. -o CMakeFiles/taskpad-cli.dir/src/main.cpp.o -c /home/tachikoma/projects/taskpad-cli/src/main.cpp",
+  "file": "/home/tachikoma/projects/taskpad-cli/src/main.cpp",
+  "output": "CMakeFiles/taskpad-cli.dir/src/main.cpp.o"
+}
+]
