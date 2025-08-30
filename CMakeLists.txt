@@ -22,6 +22,9 @@ endif()
 # Your targets
 add_executable(taskpad-cli
   src/main.cpp
+  src/menu.cpp
+  src/bootAnimation.cpp
+  src/processingAnimation.cpp
   # add other .cpp files here
 )
 

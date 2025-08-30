@@ -1,0 +1,14 @@
+#include <iostream>
+#include <thread>
+
+void processingAnimation() {
+    std::cout << "[Processing Request";
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "." << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::cout << "✓]\n";
+};
+
+
