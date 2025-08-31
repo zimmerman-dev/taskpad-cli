@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include "bootAnimation.h"
 
 void bootAnimation() {
     std::cout << "[BOOTING TASKPAD-CLI";

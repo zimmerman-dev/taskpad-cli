@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include "processingAnimation.h"
 
 void processingAnimation() {
     std::cout << "[Processing Request";
